@@ -28,7 +28,7 @@ jobs:
           run:  composer install --prefer-dist --no-progress --no-suggest  -d ./themes/twentytwenty
 
         - name: Link Psalm plugin
-          run: ./themes/twentytwenty/vendor/bin/psalm-plugin enable humanmade/psalm-plugin-wordpress
+          run: ./themes/twentytwenty/vendor/bin/psalm-plugin enable humanmade/psalm-plugin-wordpress --root=[./themes/twentytwenty]
 
         - name: Run Code sniffs
           run: composer cs -d ./themes/twentytwenty
