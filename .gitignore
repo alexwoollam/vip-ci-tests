@@ -38,3 +38,8 @@ package-lock.json
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+vendor/
+themes/twentytwenty/composer.lock
+themes/twentytwenty/vendor/
+/vendor/

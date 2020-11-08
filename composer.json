@@ -1,0 +1,7 @@
+{
+    "name": "client/theme",
+    "description": "VIP Base",
+    "type": "project",
+    "minimum-stability": "dev",
+    "require": {}
+}

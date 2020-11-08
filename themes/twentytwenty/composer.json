@@ -1,0 +1,19 @@
+{
+    "name": "alex/twentytwenty",
+    "description": "Test",
+    "type": "wordpress-theme",
+    "minimum-stability": "dev",
+    "require-dev": {
+        "inpsyde/php-coding-standards": "1.*",
+        "vimeo/psalm": "^3.16",
+        "roots/wordpress": "@stable"
+    },
+    "scripts": {
+        "cs": "./vendor/bin/phpcs",
+        "psalm": "./vendor/bin/psalm",
+        "build": "composer install --no-dev && npm install && npm run build"
+    },
+    "extra": {
+        "wordpress-install-dir": "vendor/wordpress/wordpress"
+    }
+}
