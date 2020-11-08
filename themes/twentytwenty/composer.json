@@ -6,7 +6,8 @@
     "require-dev": {
         "inpsyde/php-coding-standards": "1.*",
         "vimeo/psalm": "^3.16",
-        "roots/wordpress": "@stable"
+        "roots/wordpress": "@stable",
+        "humanmade/psalm-plugin-wordpress": "9999999-dev"
     },
     "scripts": {
         "cs": "./vendor/bin/phpcs",

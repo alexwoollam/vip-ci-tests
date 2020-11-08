@@ -30,8 +30,10 @@
  * Note that this function is hooked into the after_setup_theme hook, which
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
+ *
+ * @return void
  */
-function twentytwenty_theme_support() {
+function twentytwenty_theme_support(): void {
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -179,8 +181,10 @@ require get_template_directory() . '/inc/custom-css.php';
 
 /**
  * Register and Enqueue Styles.
+ *
+ * @return void
  */
-function twentytwenty_register_styles() {
+function twentytwenty_register_styles(): void {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
@@ -199,8 +203,10 @@ add_action( 'wp_enqueue_scripts', 'twentytwenty_register_styles' );
 
 /**
  * Register and Enqueue Scripts.
+ *
+ * @return void
  */
-function twentytwenty_register_scripts() {
+function twentytwenty_register_scripts(): void {
 
 	$theme_version = wp_get_theme()->get( 'Version' );
 
@@ -222,8 +228,10 @@ add_action( 'wp_enqueue_scripts', 'twentytwenty_register_scripts' );
  * thus it does not warrant having an entire dedicated blocking script being loaded.
  *
  * @link https://git.io/vWdr2
+ *
+ * @return void
  */
-function twentytwenty_skip_link_focus_fix() {
+function twentytwenty_skip_link_focus_fix(): void {
 	// The following is minified via `terser --compress --mangle -- assets/js/skip-link-focus-fix.js`.
 	?>
 	<script>
@@ -251,8 +259,10 @@ add_action( 'wp_enqueue_scripts', 'twentytwenty_non_latin_languages' );
 
 /**
  * Register navigation menus uses wp_nav_menu in five places.
+ *
+ * @return void
  */
-function twentytwenty_menus() {
+function twentytwenty_menus(): void {
 
 	$locations = array(
 		'primary'  => __( 'Desktop Horizontal Menu', 'twentytwenty' ),
@@ -326,17 +336,21 @@ add_filter( 'get_custom_logo', 'twentytwenty_get_custom_logo' );
 if ( ! function_exists( 'wp_body_open' ) ) {
 
 	/**
-	 * Shim for wp_body_open, ensuring backward compatibility with versions of WordPress older than 5.2.
+	 * 	 * Shim for wp_body_open, ensuring backward compatibility with versions of WordPress older than 5.2.
+	 *
+	 * @return void
 	 */
-	function wp_body_open() {
+	function wp_body_open(): void {
 		do_action( 'wp_body_open' );
 	}
 }
 
 /**
  * Include a skip to content link at the top of the page so that users can bypass the menu.
+ *
+ * @return void
  */
-function twentytwenty_skip_link() {
+function twentytwenty_skip_link(): void {
 	echo '<a class="skip-link screen-reader-text" href="#site-content">' . __( 'Skip to the content', 'twentytwenty' ) . '</a>';
 }
 
@@ -346,8 +360,10 @@ add_action( 'wp_body_open', 'twentytwenty_skip_link', 5 );
  * Register widget areas.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ *
+ * @return void
  */
-function twentytwenty_sidebar_registration() {
+function twentytwenty_sidebar_registration(): void {
 
 	// Arguments used in all register_sidebar() calls.
 	$shared_args = array(
@@ -387,8 +403,10 @@ add_action( 'widgets_init', 'twentytwenty_sidebar_registration' );
 
 /**
  * Enqueue supplemental block editor styles.
+ *
+ * @return void
  */
-function twentytwenty_block_editor_styles() {
+function twentytwenty_block_editor_styles(): void {
 
 	// Enqueue the editor styles.
 	wp_enqueue_style( 'twentytwenty-block-editor-styles', get_theme_file_uri( '/assets/css/editor-style-block.css' ), array(), wp_get_theme()->get( 'Version' ), 'all' );
@@ -408,8 +426,10 @@ add_action( 'enqueue_block_editor_assets', 'twentytwenty_block_editor_styles', 1
 
 /**
  * Enqueue classic editor styles.
+ *
+ * @return void
  */
-function twentytwenty_classic_editor_styles() {
+function twentytwenty_classic_editor_styles(): void {
 
 	$classic_editor_styles = array(
 		'/assets/css/editor-style-classic.css',
@@ -475,8 +495,10 @@ add_filter( 'tiny_mce_before_init', 'twentytwenty_add_classic_editor_non_latin_s
 /**
  * Block Editor Settings.
  * Add custom colors and font sizes to the block editor.
+ *
+ * @return void
  */
-function twentytwenty_block_editor_settings() {
+function twentytwenty_block_editor_settings(): void {
 
 	// Block Editor Palette.
 	$editor_color_palette = array(

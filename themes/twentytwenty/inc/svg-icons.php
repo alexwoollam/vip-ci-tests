@@ -9,14 +9,17 @@
 
 if ( ! function_exists( 'twentytwenty_the_theme_svg' ) ) {
 	/**
-	 * Output and Get Theme SVG.
-	 * Output and get the SVG markup for an icon in the TwentyTwenty_SVG_Icons class.
+	 * 	 * Output and Get Theme SVG.
+	 * 	 * Output and get the SVG markup for an icon in the TwentyTwenty_SVG_Icons class.
+	 * 	 *
 	 *
 	 * @param string $svg_name The name of the icon.
 	 * @param string $group The group the icon belongs to.
 	 * @param string $color Color code.
+	 *
+	 * @return void
 	 */
-	function twentytwenty_the_theme_svg( $svg_name, $group = 'ui', $color = '' ) {
+	function twentytwenty_the_theme_svg( $svg_name, $group = 'ui', $color = '' ): void {
 		echo twentytwenty_get_theme_svg( $svg_name, $group, $color ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in twentytwenty_get_theme_svg().
 	}
 }
@@ -24,11 +27,14 @@ if ( ! function_exists( 'twentytwenty_the_theme_svg' ) ) {
 if ( ! function_exists( 'twentytwenty_get_theme_svg' ) ) {
 
 	/**
-	 * Get information about the SVG icon.
+	 * 	 * Get information about the SVG icon.
+	 * 	 *
 	 *
 	 * @param string $svg_name The name of the icon.
 	 * @param string $group The group the icon belongs to.
 	 * @param string $color Color code.
+	 *
+	 * @return false|string
 	 */
 	function twentytwenty_get_theme_svg( $svg_name, $group = 'ui', $color = '' ) {
 

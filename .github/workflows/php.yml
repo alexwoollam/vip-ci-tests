@@ -26,7 +26,10 @@ jobs:
 
         - name: Install dependencies
           run:  composer install --prefer-dist --no-progress --no-suggest  -d ./themes/twentytwenty
-    
+
+        - name: Link Psalm plugin
+          run: ./themes/twentytwenty/vendor/bin/psalm-plugin enable humanmade/psalm-plugin-wordpress
+
         - name: Run Code sniffs
           run: composer cs -d ./themes/twentytwenty
           if: always()

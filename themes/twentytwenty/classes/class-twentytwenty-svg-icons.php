@@ -14,14 +14,17 @@ if ( ! class_exists( 'TwentyTwenty_SVG_Icons' ) ) {
 	 */
 	class TwentyTwenty_SVG_Icons {
 		/**
-		 * GET SVG CODE
-		 * Get the SVG code for the specified icon
+		 * 		 * GET SVG CODE
+		 * 		 * Get the SVG code for the specified icon
+		 * 		 *
 		 *
 		 * @param string $icon  Icon name.
 		 * @param string $group Icon group.
 		 * @param string $color Color.
+		 *
+		 * @return null|string
 		 */
-		public static function get_svg( $icon, $group = 'ui', $color = '#1A1A1B' ) {
+		public static function get_svg( $icon, $group = 'ui', $color = '#1A1A1B' ): ?string {
 			if ( 'ui' === $group ) {
 				$arr = self::$ui_icons;
 			} elseif ( 'social' === $group ) {

@@ -14,11 +14,14 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 	class TwentyTwenty_Customize {
 
 		/**
-		 * Register customizer options.
+		 * 		 * Register customizer options.
+		 * 		 *
 		 *
 		 * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+		 *
+		 * @return void
 		 */
-		public static function register( $wp_customize ) {
+		public static function register( $wp_customize ): void {
 
 			/**
 			 * Site Title & Description.
@@ -468,29 +471,35 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
  * */
 if ( ! function_exists( 'twentytwenty_customize_partial_blogname' ) ) {
 	/**
-	 * Render the site title for the selective refresh partial.
+	 * 	 * Render the site title for the selective refresh partial.
+	 *
+	 * @return void
 	 */
-	function twentytwenty_customize_partial_blogname() {
+	function twentytwenty_customize_partial_blogname(): void {
 		bloginfo( 'name' );
 	}
 }
 
 if ( ! function_exists( 'twentytwenty_customize_partial_blogdescription' ) ) {
 	/**
-	 * Render the site description for the selective refresh partial.
+	 * 	 * Render the site description for the selective refresh partial.
+	 *
+	 * @return void
 	 */
-	function twentytwenty_customize_partial_blogdescription() {
+	function twentytwenty_customize_partial_blogdescription(): void {
 		bloginfo( 'description' );
 	}
 }
 
 if ( ! function_exists( 'twentytwenty_customize_partial_site_logo' ) ) {
 	/**
-	 * Render the site logo for the selective refresh partial.
+	 * 	 * Render the site logo for the selective refresh partial.
+	 * 	 *
+	 * 	 * Doing it this way so we don't have issues with `render_callback`'s arguments.
 	 *
-	 * Doing it this way so we don't have issues with `render_callback`'s arguments.
+	 * @return void
 	 */
-	function twentytwenty_customize_partial_site_logo() {
+	function twentytwenty_customize_partial_site_logo(): void {
 		twentytwenty_site_logo();
 	}
 }

@@ -27,9 +27,10 @@
  *
  * @param array   $args Arguments for displaying the site logo either as an image or text.
  * @param boolean $echo Echo or return the HTML.
- * @return string Compiled HTML based on our arguments.
+ *
+ * @return null|string Compiled HTML based on our arguments.
  */
-function twentytwenty_site_logo( $args = array(), $echo = true ) {
+function twentytwenty_site_logo( $args = array(), $echo = true ): ?string {
 	$logo       = get_custom_logo();
 	$site_title = get_bloginfo( 'name' );
 	$contents   = '';
@@ -89,7 +90,8 @@ function twentytwenty_site_logo( $args = array(), $echo = true ) {
  * Displays the site description.
  *
  * @param boolean $echo Echo or return the html.
- * @return string The HTML to display.
+ *
+ * @return null|string The HTML to display.
  */
 function twentytwenty_site_description( $echo = true ) {
 	$description = get_bloginfo( 'description' );
@@ -176,8 +178,10 @@ add_filter( 'comment_reply_link', 'twentytwenty_filter_comment_reply_link' );
  *
  * @param int    $post_id  The ID of the post for which the post meta should be output.
  * @param string $location Which post meta location to output – single or preview.
+ *
+ * @return void
  */
-function twentytwenty_the_post_meta( $post_id = null, $location = 'single-top' ) {
+function twentytwenty_the_post_meta( $post_id = null, $location = 'single-top' ): void {
 
 	echo twentytwenty_get_post_meta( $post_id, $location ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in twentytwenty_get_post_meta().
 
@@ -189,6 +193,8 @@ function twentytwenty_the_post_meta( $post_id = null, $location = 'single-top' )
  * @param string $link    Anchor tag for the edit link.
  * @param int    $post_id Post ID.
  * @param string $text    Anchor text.
+ *
+ * @return null|string
  */
 function twentytwenty_edit_post_link( $link, $post_id, $text ) {
 	if ( is_admin() ) {
@@ -225,6 +231,8 @@ add_filter( 'edit_post_link', 'twentytwenty_edit_post_link', 10, 3 );
  *
  * @param int    $post_id The ID of the post.
  * @param string $location The location where the meta is shown.
+ *
+ * @return null|string
  */
 function twentytwenty_get_post_meta( $post_id = null, $location = 'single-top' ) {
 
@@ -609,8 +617,10 @@ add_filter( 'walker_nav_menu_start_el', 'twentytwenty_nav_menu_social_icons', 10
  * Adds 'no-js' class.
  *
  * If we're missing JavaScript support, the HTML element will have a 'no-js' class.
+ *
+ * @return void
  */
-function twentytwenty_no_js_class() {
+function twentytwenty_no_js_class(): void {
 
 	?>
 	<script>document.documentElement.className = document.documentElement.className.replace( 'no-js', 'js' );</script>
